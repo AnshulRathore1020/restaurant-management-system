@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #222;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #444;
+            text-align: center;
+        }
+
+        th {
+            background-color: #c59d5f;
+            color: black;
+        }
+
+        tr:hover {
+            background-color: #333;
+        }
+
+        .logout-btn {
+            background-color: #c59d5f;
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            float: right;
+            margin-bottom: 20px;
+            font-weight: bold;
+            
+            button {
+    background-color: #c59d5f;
+    color: black;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+button:hover {
+    background-color: #e0b974;
+}
+            
+        }
+    </style>
+</head>
+<body>
+
+    <a th:href="@{/logout}" class="logout-btn">Logout</a>
+
+    <h1>Admin Dashboard</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Persons</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="res : ${reservations}">
+                <td th:text="${res.name}">Name</td>
+                <td th:text="${res.phone}">Phone</td>
+                <td th:text="${res.person}">Person</td>
+                <td th:text="${res.reservation_date}">Date</td>
+                <td th:text="${res.time}">Time</td>
+                <td th:text="${res.message}">Message</td>
+                
+                
+                 <td>
+        <form th:action="@{/admin/delete/{id}(id=${res.id})}" method="post">
+            <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+        </form>
+    </td>
+    
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

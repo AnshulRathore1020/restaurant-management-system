@@ -625,7 +625,7 @@
     </div>
   </div>
 
-  <textarea th:field="*{message}" placeholder="Message" class="input-field"></textarea>
+  <textarea id="mytextarea" th:field="*{message}" placeholder="Message" class="input-field"></textarea>
 <p th:if="${#fields.hasErrors('message')}" th:errors="*{message}" class="error-text"></p>
   <button type="submit" class="btn btn-secondary">
     <span class="text text-1">Book A Table</span>
@@ -698,6 +698,17 @@
     <img th:src="@{/images/shape-8.png}" width="120" height="115" alt="shape" class="shape shape-2">
 
   </div>
+  
+  <script src="https://cdn.tiny.cloud/1/7aprz4klfepal5h7zqbm0gr6fjjoil18y7li6de0g83lqw00/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+<!-- Init Script -->
+<script>
+  tinymce.init({
+    selector: '#mytextarea',
+    height: 300
+  });
+</script>
+  
 </section>
 
 

@@ -14,17 +14,15 @@ import com.restaurant.repository.ReservationRepository;
 
 @Controller
 public class AdminController {
-	
-	
-	@Autowired
-    private  ReservationRepository reservationRepository;
 
-   
-
+    @Autowired
+    private ReservationRepository reservationRepository;
 
     @GetMapping("/admin/dashboard")
     public String dashboard(Model model) {
-    	List<Reservation> reservations = reservationRepository.findAllByOrderByReservation_dateDesc();
+
+        List<Reservation> reservations = reservationRepository.findAll();
+
         model.addAttribute("reservations", reservations);
         return "admin-dashboard";
     }

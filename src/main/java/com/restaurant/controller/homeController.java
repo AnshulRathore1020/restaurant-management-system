@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.restaurant.Entity.Reservation;
 import com.restaurant.repository.ReservationRepository;
+import com.restaurant.service.EmailService;
 
 import jakarta.validation.Valid;
 
@@ -19,6 +20,9 @@ public class homeController {
 
 @Autowired
 private ReservationRepository reservationRepository;
+
+@Autowired
+private EmailService emailService;
 
 // Home Page
 @GetMapping("/")
@@ -37,8 +41,16 @@ public String handleReservation(@Valid @ModelAttribute("reservation") Reservatio
         return "index";
     }
 
-    // Save reservation to database
+    // Save reservation
     reservationRepository.save(reservation);
+
+    // Send Email
+    emailService.sendReservationConfirmation(
+            reservation.getEmail(),
+            reservation.getName(),
+            reservation.getReservation_date(),
+            reservation.getTime()
+    );
 
     // Success message
     model.addAttribute("success", "Your reservation has been successfully placed!");

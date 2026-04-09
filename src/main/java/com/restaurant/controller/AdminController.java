@@ -24,7 +24,7 @@ public class AdminController {
 
     @GetMapping("/admin/dashboard")
     public String dashboard(Model model) {
-        List<Reservation> reservations = reservationRepository.findAll();
+    	List<Reservation> reservations = reservationRepository.findAllByOrderByReservationDateDesc();
         model.addAttribute("reservations", reservations);
         return "admin-dashboard";
     }

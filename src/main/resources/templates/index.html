@@ -544,94 +544,139 @@
 <section class="reservation" id="reservation">
   <div class="container">
 
+```
+<div class="form reservation-form bg-black-10">
 
+  <form th:action="@{'/submitReservation' + '#reservation'}"
+        method="post"
+        th:object="${reservation}"
+        class="form-left">
 
+    <!-- SUCCESS MESSAGE -->
+    <div th:if="${success}" class="success-message">
+      <p th:text="${success}"></p>
+    </div>
 
-    <!-- ✅ Form inside same section -->
-    <div class="form reservation-form bg-black-10">
-      <form th:action="@{'/submitReservation' + '#reservation'}" method="post" th:object="${reservation}" class="form-left">
+    <h2 class="headline-1 text-center">Online Reservation</h2>
 
-<!--  <!-- ✅ SUCCESS MESSAGE: Show only if reservation is successful -->
-<div th:if="${success}" class="success-message">
-  <p th:text="${success}"></p>
+    <p class="form-text text-center">
+      Booking request <a href="tel:9009258986" class="link">9009 25 8986</a>
+      or fill out the order form
+    </p>
+
+    <!-- NAME EMAIL PHONE -->
+    <div class="input-wrapper">
+
+      <input type="text"
+             th:field="*{name}"
+             placeholder="Your Name"
+             class="input-field">
+      <p th:if="${#fields.hasErrors('name')}"
+         th:errors="*{name}"
+         class="error-text"></p>
+
+      <input type="email"
+             th:field="*{email}"
+             placeholder="Email"
+             class="input-field">
+      <p th:if="${#fields.hasErrors('email')}"
+         th:errors="*{email}"
+         class="error-text"></p>
+
+      <input type="tel"
+             th:field="*{phone}"
+             placeholder="Phone Number"
+             class="input-field">
+      <p th:if="${#fields.hasErrors('phone')}"
+         th:errors="*{phone}"
+         class="error-text"></p>
+
+    </div>
+
+    <!-- PERSON DATE TIME -->
+    <div class="input-wrapper">
+
+      <div class="icon-wrapper">
+        <ion-icon name="person-outline"></ion-icon>
+
+        <select th:field="*{person}" class="input-field">
+          <option value="1">1 Person</option>
+          <option value="2">2 Person</option>
+          <option value="3">3 Person</option>
+          <option value="4">4 Person</option>
+          <option value="5">5 Person</option>
+          <option value="6">6 Person</option>
+        </select>
+
+        <p th:if="${#fields.hasErrors('person')}"
+           th:errors="*{person}"
+           class="error-text"></p>
+      </div>
+
+      <div class="icon-wrapper">
+        <ion-icon name="calendar-clear-outline"></ion-icon>
+
+        <input type="date"
+               th:field="*{reservation_date}"
+               class="input-field">
+
+        <p th:if="${#fields.hasErrors('reservation_date')}"
+           th:errors="*{reservation_date}"
+           class="error-text"></p>
+      </div>
+
+      <div class="icon-wrapper">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <select th:field="*{time}" class="input-field">
+          <option value="08:00am">08:00 am</option>
+          <option value="09:00am">09:00 am</option>
+          <option value="10:00am">10:00 am</option>
+          <option value="11:00am">11:00 am</option>
+          <option value="12:00pm">12:00 pm</option>
+          <option value="01:00pm">01:00 pm</option>
+          <option value="02:00pm">02:00 pm</option>
+          <option value="03:00pm">03:00 pm</option>
+          <option value="04:00pm">04:00 pm</option>
+          <option value="05:00pm">05:00 pm</option>
+          <option value="06:00pm">06:00 pm</option>
+          <option value="07:00pm">07:00 pm</option>
+          <option value="08:00pm">08:00 pm</option>
+          <option value="09:00pm">09:00 pm</option>
+        </select>
+
+        <p th:if="${#fields.hasErrors('time')}"
+           th:errors="*{time}"
+           class="error-text"></p>
+      </div>
+
+    </div>
+
+    <!-- MESSAGE -->
+    <textarea th:field="*{message}"
+              placeholder="Message"
+              class="input-field"
+              rows="4"
+              style="width:100%; padding:10px;"></textarea>
+
+    <p th:if="${#fields.hasErrors('message')}"
+       th:errors="*{message}"
+       class="error-text"></p>
+
+    <!-- SUBMIT BUTTON -->
+    <button type="submit" class="btn btn-secondary">
+      <span class="text text-1">Book A Table</span>
+      <span class="text text-2" aria-hidden="true">Book A Table</span>
+    </button>
+
+  </form>
+
 </div>
+```
 
-
-
-
-        <h2 class="headline-1 text-center">Online Reservation</h2>
-
-        <p class="form-text text-center">
-          Booking request <a href="tel:9009258986" class="link">9009 25 8986</a>
-          or fill out the order form
-        </p>
-
-        <div class="input-wrapper">
-          <input type="text" th:field="*{name}" placeholder="Your Name" class="input-field">
-          <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error-text"></p>
-          
-          <input type="email" name="email" placeholder="Email" required class="input-field" th:field="*{email}">
-<span class="error-text" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</span>
-          
-          
-          
-          <input type="tel" th:field="*{phone}" placeholder="Phone Number" class="input-field">
-          <p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="error-text"></p>
-        </div>
-
-        <div class="input-wrapper">
-          <div class="icon-wrapper">
-            <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-            <select th:field="*{person}" class="input-field">
-              <option value="1">1 Person</option>
-              <option value="2">2 Person</option>
-              <option value="3">3 Person</option>
-              <option value="4">4 Person</option>
-              <option value="5">5 Person</option>
-              <option value="6">6 Person</option>
-            </select>
-             <p th:if="${#fields.hasErrors('person')}" th:errors="*{person}" class="error-text"></p>
-          </div>
-
-          <!-- ... rest of form continues -->
-
-
-    <div class="icon-wrapper">
-      <ion-icon name="calendar-clear-outline" aria-hidden="true"></ion-icon>
-      <input type="date" th:field="*{reservation_date}" class="input-field">
-       <p th:if="${#fields.hasErrors('reservation_date')}" th:errors="*{reservation_date}" class="error-text"></p>
-    </div>
-
-    <div class="icon-wrapper">
-      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-      <select th:field="*{time}" class="input-field">
-       
-        <option value="08:00am">08:00 am</option>
-        <option value="09:00am">09:00 am</option>
-        <option value="10:00am">10:00 am</option>
-        <option value="11:00am">11:00 am</option>
-        <option value="12:00pm">12:00 pm</option>
-        <option value="01:00pm">01:00 pm</option>
-        <option value="02:00pm">02:00 pm</option>
-        <option value="03:00pm">03:00 pm</option>
-        <option value="04:00pm">04:00 pm</option>
-        <option value="05:00pm">05:00 pm</option>
-        <option value="06:00pm">06:00 pm</option>
-        <option value="07:00pm">07:00 pm</option>
-        <option value="08:00pm">08:00 pm</option>
-        <option value="09:00pm">09:00 pm</option>
-      </select>
-      <p th:if="${#fields.hasErrors('time')}" th:errors="*{time}" class="error-text"></p>
-    </div>
   </div>
+</section>
 
-  <textarea id="mytextarea" th:field="*{message}" placeholder="Message" class="input-field"></textarea>
-<p th:if="${#fields.hasErrors('message')}" th:errors="*{message}" class="error-text"></p>
-  <button type="submit" class="btn btn-secondary">
-    <span class="text text-1">Book A Table</span>
-    <span class="text text-2" aria-hidden="true">Book A Table</span>
-  </button>
-</form>
 
 
 <!-- FEATURES -->
@@ -699,15 +744,7 @@
 
   </div>
   
-  <script src="https://cdn.tiny.cloud/1/7aprz4klfepal5h7zqbm0gr6fjjoil18y7li6de0g83lqw00/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
-<!-- Init Script -->
-<script>
-  tinymce.init({
-    selector: '#mytextarea',
-    height: 300
-  });
-</script>
   
 </section>
 

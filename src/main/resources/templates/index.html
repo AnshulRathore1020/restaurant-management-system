@@ -1,748 +1,211 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Grilli Restaurant</title>
-  <meta name="title" content="Grilli - Amazing & Delicious Food">
-  <meta name="description" content="This is a Restaurant html template made by codewithsadee">
+<title>Restaurant Management System</title>
 
-  <!-- favicon -->
-  <link rel="shortcut icon" th:href="@{/favicon.svg}" type="image/svg+xml">
+<link rel="shortcut icon" th:href="@{/favicon.svg}" type="image/svg+xml">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap"
-    rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" th:href="@{/css/style.css}">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
 
-  <!-- Preload Images -->
-  <link rel="preload" as="image" th:href="@{/images/hero-slider-1.jpg}">
-  <link rel="preload" as="image" th:href="@{/images/hero-slider-2.jpg}">
-  <link rel="preload" as="image" th:href="@{/images/hero-slider-3.jpg}">
+<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
-<body id="top">
+<body>
 
-  <!-- Preloader -->
-  <div class="preload" data-preaload>
-    <div class="circle"></div>
-    <p class="text">Apnasweet</p>
-  </div>
+<!-- HEADER -->
 
-  <!-- Topbar -->
-  <div class="topbar">
-    <div class="container">
-      <address class="topbar-item">
-        <div class="icon">
-          <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-        </div>
-        <span class="span">Indore, Madhya Pradesh</span>
-      </address>
+<header class="header">
+<div class="container">
 
-      <div class="separator"></div>
+<a href="#" class="logo">
+<img th:src="@{/images/logo.svg}" width="160" height="50">
+</a>
 
-      <div class="topbar-item item-2">
-        <div class="icon">
-          <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-        </div>
-        <span class="span">Daily : 8.00 am to 10.00 pm</span>
-      </div>
+<nav class="navbar">
+<ul class="navbar-list">
 
-      <a href="tel:+919009258986" class="topbar-item link">
-        <div class="icon">
-          <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-        </div>
-        <span class="span">+919009258986</span>
-      </a>
-
-      <div class="separator"></div>
-
-      <a href="mailto:Apnasweet@restaurant.com" class="topbar-item link">
-        <div class="icon">
-          <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
-        </div>
-        <span class="span">Dev.ByAnshul</span>
-      </a>
-    </div>
-  </div>
-  
-  
-  <!-- Header -->
-<header class="header" data-header>
-  <div class="container">
-
-    <a href="#" class="logo">
-      <img th:src="@{/images/logo.svg}" width="160" height="50" alt="Grilli - Home">
-    </a>
-
-    <nav class="navbar" data-navbar>
-
-      <button class="close-btn" aria-label="close menu" data-nav-toggler>
-        <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
-      </button>
-
-      <a href="#" class="logo">
-        <img th:src="@{/images/logo.svg}" width="160" height="50" alt="Grilli - Home">
-      </a>
-
-      <ul class="navbar-list">
-
-        <li class="navbar-item">
-          <a href="#home" class="navbar-link hover-underline active">
-            <div class="separator"></div>
-            <span class="span">Home</span>
-          </a>
-        </li>
-
-        <li class="navbar-item">
-          <a href="#menu" class="navbar-link hover-underline">
-            <div class="separator"></div>
-            <span class="span">Menus</span>
-          </a>
-        </li>
-
-        <li class="navbar-item">
-          <a href="#about" class="navbar-link hover-underline">
-            <div class="separator"></div>
-            <span class="span">About Us</span>
-          </a>
-        </li>
-
-        <li class="navbar-item">
-          <a href="#" class="navbar-link hover-underline">
-            <div class="separator"></div>
-            <span class="span">Our Chefs</span>
-          </a>
-        </li>
-
-        <li class="navbar-item">
-          <a href="#" class="navbar-link hover-underline">
-            <div class="separator"></div>
-            <span class="span">Contact</span>
-          </a>
-        </li>
-        
-        <li><a th:href="@{/admin-login}" class="navbar-link"><span class="span">Admin</span></a></li>
-        
-
-      </ul>
-
-      <div class="text-center">
-        <p class="headline-1 navbar-title">Visit Us</p>
-        <address class="body-4">Indore, Madhya Pradesh</address>
-        <p class="body-4 navbar-text">Open: 9.30 am - 2.30pm</p>
-        <a href="mailto:Apnasweet@grilli.com" class="body-4 sidebar-link">Apnasweet@grilli.com</a>
-
-        <div class="separator"></div>
-        <p class="contact-label">Booking Request</p>
-        <a href="tel:0731 255 7310" class="body-1 contact-number hover-underline">0731 255 7310</a>
-      </div>
-
-    </nav>
-
-    <a href="#" class="btn btn-secondary">
-      <span class="text text-1">Find A Table</span>
-      <span class="text text-2" aria-hidden="true">Find A Table</span>
-    </a>
-
-    <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-      <span class="line line-1"></span>
-      <span class="line line-2"></span>
-      <span class="line line-3"></span>
-    </button>
-
-    <div class="overlay" data-nav-toggler data-overlay></div>
-
-  </div>
-</header>
-
-<!-- Hero Section -->
-<section class="hero text-center" aria-label="home" id="home">
-
-  <ul class="hero-slider" data-hero-slider>
-
-    <li class="slider-item active" data-hero-slider-item>
-      <div class="slider-bg">
-        <img th:src="@{/images/hero-slider-1.jpg}" width="1880" height="950" alt="" class="img-cover">
-      </div>
-      <p class="label-2 section-subtitle slider-reveal">Traditional & Hygienic</p>
-      <h1 class="display-1 hero-title slider-reveal">
-        For the love of <br> delicious food
-      </h1>
-      <p class="body-2 hero-text slider-reveal">Come with family & feel the joy of mouthwatering food</p>
-      <a href="#" class="btn btn-primary slider-reveal">
-        <span class="text text-1">View Our Menu</span>
-        <span class="text text-2" aria-hidden="true">View Our Menu</span>
-      </a>
-    </li>
-
-    <li class="slider-item" data-hero-slider-item>
-      <div class="slider-bg">
-        <img th:src="@{/images/hero-slider-2.jpg}" width="1880" height="950" alt="" class="img-cover">
-      </div>
-      <p class="label-2 section-subtitle slider-reveal">Delightful Experience</p>
-      <h1 class="display-1 hero-title slider-reveal">Flavors Inspired by <br> the Seasons</h1>
-      <p class="body-2 hero-text slider-reveal">Come with family & feel the joy of mouthwatering food</p>
-      <a href="#" class="btn btn-primary slider-reveal">
-        <span class="text text-1">View Our Menu</span>
-        <span class="text text-2" aria-hidden="true">View Our Menu</span>
-      </a>
-    </li>
-
-    <li class="slider-item" data-hero-slider-item>
-      <div class="slider-bg">
-        <img th:src="@{/images/hero-slider-3.jpg}" width="1880" height="950" alt="" class="img-cover">
-      </div>
-      <p class="label-2 section-subtitle slider-reveal">Amazing & Delicious</p>
-      <h1 class="display-1 hero-title slider-reveal">Where every flavor <br> tells a story</h1>
-      <p class="body-2 hero-text slider-reveal">Come with family & feel the joy of mouthwatering food</p>
-      <a href="#" class="btn btn-primary slider-reveal">
-        <span class="text text-1">View Our Menu</span>
-        <span class="text text-2" aria-hidden="true">View Our Menu</span>
-      </a>
-    </li>
-
-  </ul>
-
-  <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
-    <ion-icon name="chevron-back"></ion-icon>
-  </button>
-
-  <button class="slider-btn next" aria-label="slide to next" data-next-btn>
-    <ion-icon name="chevron-forward"></ion-icon>
-  </button>
-
-  <a href="#" class="hero-btn has-after">
-    <img th:src="@{/images/hero-icon.png}" width="48" height="48" alt="booking icon">
-    <span class="label-2 text-center span">Book A Table</span>
-  </a>
-
-</section>
-  
- <!-- Services Section -->
-<section class="section service bg-black-10 text-center" aria-label="service">
-  <div class="container">
-
-    <p class="section-subtitle label-2">Flavors For Royalty</p>
-    <h2 class="headline-1 section-title">We Offer Top Notch</h2>
-
-    <p class="section-text">
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry lorem Ipsum has been the industry's
-      standard dummy text ever.
-    </p>
-
-    <ul class="grid-list">
-
-      <li>
-        <div class="service-card">
-          <a href="#" class="has-before hover:shine">
-            <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
-              <img th:src="@{/images/service-1.jpg}" width="285" height="336" loading="lazy" alt="Breakfast"
-                   class="img-cover">
-            </figure>
-          </a>
-          <div class="card-content">
-            <h3 class="title-4 card-title"><a href="#">Breakfast</a></h3>
-            <a href="#" class="btn-text hover-underline label-2">View Menu</a>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <div class="service-card">
-          <a href="#" class="has-before hover:shine">
-            <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
-              <img th:src="@{/images/service-2.jpg}" width="285" height="336" loading="lazy" alt="Appetizers"
-                   class="img-cover">
-            </figure>
-          </a>
-          <div class="card-content">
-            <h3 class="title-4 card-title"><a href="#">Appetizers</a></h3>
-            <a href="#" class="btn-text hover-underline label-2">View Menu</a>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <div class="service-card">
-          <a href="#" class="has-before hover:shine">
-            <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
-              <img th:src="@{/images/service-3.jpg}" width="285" height="336" loading="lazy" alt="Drinks"
-                   class="img-cover">
-            </figure>
-          </a>
-          <div class="card-content">
-            <h3 class="title-4 card-title"><a href="#">Drinks</a></h3>
-            <a href="#" class="btn-text hover-underline label-2">View Menu</a>
-          </div>
-        </div>
-      </li>
-
-    </ul>
-
-    <img th:src="@{/images/shape-1.png}" width="246" height="412" loading="lazy" alt="shape"
-         class="shape shape-1 move-anim">
-    <img th:src="@{/images/shape-2.png}" width="343" height="345" loading="lazy" alt="shape"
-         class="shape shape-2 move-anim">
-
-  </div>
-</section>
-
-<!-- About Section -->
-<section class="section about text-center" aria-labelledby="about-label" id="about">
-  <div class="container">
-
-    <div class="about-content">
-
-      <p class="label-2 section-subtitle" id="about-label">Our Story</p>
-      <h2 class="headline-1 section-title">Every Flavor Tells a Story</h2>
-
-      <p class="section-text">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry lorem Ipsum has been the industry's
-        standard dummy text ever since the when an unknown printer took a galley of type and scrambled it to make a
-        type specimen book.
-      </p>
-
-      <div class="contact-label">Book Through Call</div>
-      <a href="tel:0731 255 7310" class="body-1 contact-number hover-underline">0731 255 7310</a>
-
-      <a href="#" class="btn btn-primary">
-        <span class="text text-1">Read More</span>
-        <span class="text text-2" aria-hidden="true">Read More</span>
-      </a>
-
-    </div>
-
-    <figure class="about-banner">
-      <img th:src="@{/images/about-banner.jpg}" width="570" height="570" loading="lazy" alt="about banner"
-           class="w-100" data-parallax-item data-parallax-speed="1">
-      <div class="abs-img abs-img-1 has-before" data-parallax-item data-parallax-speed="1.75">
-        <img th:src="@{/images/about-abs-image.jpg}" width="285" height="285" loading="lazy" alt="" class="w-100">
-      </div>
-      <div class="abs-img abs-img-2 has-before">
-        <img th:src="@{/images/badge-2.png}" width="133" height="134" loading="lazy" alt="">
-      </div>
-    </figure>
-
-    <img th:src="@{/images/shape-3.png}" width="197" height="194" loading="lazy" alt="" class="shape">
-
-  </div>
-</section>
-
-<!-- Special Dish Section -->
-<section class="special-dish text-center" aria-labelledby="dish-label">
-
-  <div class="special-dish-banner">
-    <img th:src="@{/images/special-dish-banner.jpg}" width="940" height="900" loading="lazy" alt="special dish"
-         class="img-cover">
-  </div>
-
-  <div class="special-dish-content bg-black-10">
-    <div class="container">
-
-      <img th:src="@{/images/badge-1.png}" width="28" height="41" loading="lazy" alt="badge" class="abs-img">
-
-      <p class="section-subtitle label-2">Special Dish</p>
-      <h2 class="headline-1 section-title">Lobster Tortellini</h2>
-
-      <p class="section-text">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry lorem Ipsum has been the industry's
-        standard dummy text ever since the when an unknown printer took a galley of type.
-      </p>
-
-      <div class="wrapper">
-        <del class="del body-3">400.00</del>
-        <span class="span body-1">220.00</span>
-      </div>
-
-      <a href="#" class="btn btn-primary">
-        <span class="text text-1">View All Menu</span>
-        <span class="text text-2" aria-hidden="true">View All Menu</span>
-      </a>
-
-    </div>
-  </div>
-
-  <img th:src="@{/images/shape-4.png}" width="179" height="359" loading="lazy" alt="" class="shape shape-1">
-  <img th:src="@{/images/shape-9.png}" width="351" height="462" loading="lazy" alt="" class="shape shape-2">
-
-</section>
- 
- <!-- Menu Section -->
-<section class="section menu" aria-label="menu-label" id="menu">
-  <div class="container">
-
-    <p class="section-subtitle text-center label-2">Special Selection</p>
-    <h2 class="headline-1 section-title text-center">Delicious Menu</h2>
-
-    <ul class="grid-list">
-
-      <li>
-        <div class="menu-card hover:card">
-          <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
-            <img th:src="@{/images/menu-1.png}" width="100" height="100" loading="lazy" alt="Greek Salad" class="img-cover">
-          </figure>
-          <div>
-            <div class="title-wrapper">
-              <h3 class="title-3"><a href="#" class="card-title">Greek Salad</a></h3>
-              <span class="badge label-1">Seasonal</span>
-              <span class="span title-2">₹225.50</span>
-            </div>
-            <p class="card-text label-1">
-              Tomatoes, green bell pepper, cucumber, onion, olives, and feta cheese.
-            </p>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <div class="menu-card hover:card">
-          <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
-            <img th:src="@{/images/menu-2.png}" width="100" height="100" loading="lazy" alt="Lasagne" class="img-cover">
-          </figure>
-          <div>
-            <div class="title-wrapper">
-              <h3 class="title-3"><a href="#" class="card-title">Lasagne</a></h3>
-              <span class="span title-2">₹340.00</span>
-            </div>
-            <p class="card-text label-1">
-              Vegetables, cheeses, ground meats, tomato sauce, seasonings and spices.
-            </p>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <div class="menu-card hover:card">
-          <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
-            <img th:src="@{/images/menu-3.png}" width="100" height="100" loading="lazy" alt="Butternut Pumpkin" class="img-cover">
-          </figure>
-          <div>
-            <div class="title-wrapper">
-              <h3 class="title-3"><a href="#" class="card-title">Butternut Pumpkin</a></h3>
-              <span class="span title-2">₹310.00</span>
-            </div>
-            <p class="card-text label-1">
-              Typesetting industry lorem Lorem Ipsum is simply dummy text of the printing.
-            </p>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <div class="menu-card hover:card">
-          <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
-            <img th:src="@{/images/menu-4.png}" width="100" height="100" loading="lazy" alt="Tokusen Wagyu" class="img-cover">
-          </figure>
-          <div>
-            <div class="title-wrapper">
-              <h3 class="title-3"><a href="#" class="card-title">Tokusen Wagyu</a></h3>
-              <span class="badge label-1">New</span>
-              <span class="span title-2">₹239.00</span>
-            </div>
-            <p class="card-text label-1">
-              Vegetables, cheeses, ground meats, tomato sauce, seasonings and spices.
-            </p>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <div class="menu-card hover:card">
-          <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
-            <img th:src="@{/images/menu-5.png}" width="100" height="100" loading="lazy" alt="Olivas Rellenas" class="img-cover">
-          </figure>
-          <div>
-            <div class="title-wrapper">
-              <h3 class="title-3"><a href="#" class="card-title">Olivas Rellenas</a></h3>
-              <span class="span title-2">₹225.00</span>
-            </div>
-            <p class="card-text label-1">
-              Avocados with crab meat, red onion, crab salad stuffed red bell pepper.
-            </p>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <div class="menu-card hover:card">
-          <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
-            <img th:src="@{/images/menu-6.png}" width="100" height="100" loading="lazy" alt="Opu Fish" class="img-cover">
-          </figure>
-          <div>
-            <div class="title-wrapper">
-              <h3 class="title-3"><a href="#" class="card-title">Opu Fish</a></h3>
-              <span class="span title-2">₹249.00</span>
-            </div>
-            <p class="card-text label-1">
-              Vegetables, cheeses, ground meats, tomato sauce, seasonings and spices.
-            </p>
-          </div>
-        </div>
-      </li>
-
-    </ul>
-
-    <p class="menu-text text-center">
-      During winter daily from <span class="span">7:00 pm</span> to <span class="span">9:00 pm</span>
-    </p>
-
-    <a href="#" class="btn btn-primary">
-      <span class="text text-1">View All Menu</span>
-      <span class="text text-2" aria-hidden="true">View All Menu</span>
-    </a>
-
-    <img th:src="@{/images/shape-5.png}" width="921" height="1036" loading="lazy" alt="shape"
-         class="shape shape-2 move-anim">
-    <img th:src="@{/images/shape-6.png}" width="343" height="345" loading="lazy" alt="shape"
-         class="shape shape-3 move-anim">
-
-  </div>
-</section> 
-
-<!-- TESTIMONIALS -->
-<section class="section testi text-center has-bg-image"
-  th:style="'background-image: url(' + @{/images/testimonial-bg.jpg} + ')'" aria-label="testimonials">
-  <div class="container">
-
-  <!-- 
-    <div class="quote">”</div>
-
-    <p class="headline-2 testi-text">
-      I wanted to thank you for inviting me down for that amazing dinner the other night. The food was
-      extraordinary.
-    </p>
-
-    <div class="wrapper">
-      <div class="separator"></div>
-      <div class="separator"></div>
-      <div class="separator"></div>
-    </div>
-
-    <div class="profile">
-      <img th:src="@{/images/testi-avatar.jpg}" width="100" height="100" loading="lazy" alt="Bhupendra Rathore" class="img">
-      <p class="label-2 profile-name">Bhupendra Rathore</p>
-    </div>
-	  -->
-  </div>
-</section>
-
-
-
-
-
-
-<!-- RESERVATION -->
-<section class="reservation" id="reservation">
-  <div class="container">
-
-
-
-
-    <!-- ✅ Form inside same section -->
-    <div class="form reservation-form bg-black-10">
-      <form th:action="@{'/submitReservation' + '#reservation'}" method="post" th:object="${reservation}" class="form-left">
-
-<!--  <!-- ✅ SUCCESS MESSAGE: Show only if reservation is successful -->
-<div th:if="${success}" class="success-message">
-  <p th:text="${success}"></p>
-</div>
-
-
-
-
-        <h2 class="headline-1 text-center">Online Reservation</h2>
-
-        <p class="form-text text-center">
-          Booking request <a href="tel:9009258986" class="link">9009 25 8986</a>
-          or fill out the order form
-        </p>
-
-        <div class="input-wrapper">
-          <input type="text" th:field="*{name}" placeholder="Your Name" class="input-field">
-          <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error-text"></p>
-          
-          <input type="email" name="email" placeholder="Email" required class="input-field" th:field="*{email}">
-<span class="error-text" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</span>
-          
-          
-          
-          <input type="tel" th:field="*{phone}" placeholder="Phone Number" class="input-field">
-          <p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="error-text"></p>
-        </div>
-
-        <div class="input-wrapper">
-          <div class="icon-wrapper">
-            <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-            <select th:field="*{person}" class="input-field">
-              <option value="1">1 Person</option>
-              <option value="2">2 Person</option>
-              <option value="3">3 Person</option>
-              <option value="4">4 Person</option>
-              <option value="5">5 Person</option>
-              <option value="6">6 Person</option>
-            </select>
-             <p th:if="${#fields.hasErrors('person')}" th:errors="*{person}" class="error-text"></p>
-          </div>
-
-          <!-- ... rest of form continues -->
-
-
-    <div class="icon-wrapper">
-      <ion-icon name="calendar-clear-outline" aria-hidden="true"></ion-icon>
-      <input type="date" th:field="*{reservation_date}" class="input-field">
-       <p th:if="${#fields.hasErrors('reservation_date')}" th:errors="*{reservation_date}" class="error-text"></p>
-    </div>
-
-    <div class="icon-wrapper">
-      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-      <select th:field="*{time}" class="input-field">
-       
-        <option value="08:00am">08:00 am</option>
-        <option value="09:00am">09:00 am</option>
-        <option value="10:00am">10:00 am</option>
-        <option value="11:00am">11:00 am</option>
-        <option value="12:00pm">12:00 pm</option>
-        <option value="01:00pm">01:00 pm</option>
-        <option value="02:00pm">02:00 pm</option>
-        <option value="03:00pm">03:00 pm</option>
-        <option value="04:00pm">04:00 pm</option>
-        <option value="05:00pm">05:00 pm</option>
-        <option value="06:00pm">06:00 pm</option>
-        <option value="07:00pm">07:00 pm</option>
-        <option value="08:00pm">08:00 pm</option>
-        <option value="09:00pm">09:00 pm</option>
-      </select>
-      <p th:if="${#fields.hasErrors('time')}" th:errors="*{time}" class="error-text"></p>
-    </div>
-  </div>
-
-  <textarea id="mytextarea" th:field="*{message}" placeholder="Message" class="input-field"></textarea>
-<p th:if="${#fields.hasErrors('message')}" th:errors="*{message}" class="error-text"></p>
-  <button type="submit" class="btn btn-secondary">
-    <span class="text text-1">Book A Table</span>
-    <span class="text text-2" aria-hidden="true">Book A Table</span>
-  </button>
-</form>
-
-
-<!-- FEATURES -->
-<section class="section features text-center" aria-label="features">
-  <div class="container">
-
-    <p class="section-subtitle label-2">Why Choose Us</p>
-    <h2 class="headline-1 section-title">Our Strength</h2>
-
-<ul class="grid-list">
-
-  <li class="feature-item">
-    <div class="feature-card">
-      <div class="card-icon">
-        <img th:src="@{/images/features-icon-1.png}" width="100" height="80" alt="icon">
-      </div>
-      <h3 class="title-2 card-title">Hygienic Food</h3>
-      <p class="label-1 card-text">
-        We maintain strict hygiene standards in our kitchen to ensure every meal is fresh, safe, and healthy.
-      </p>
-    </div>
-  </li>
-
-  <li class="feature-item">
-    <div class="feature-card">
-      <div class="card-icon">
-        <img th:src="@{/images/features-icon-2.png}" width="100" height="80" alt="icon">
-      </div>
-      <h3 class="title-2 card-title">Fresh Environment</h3>
-      <p class="label-1 card-text">
-        Our restaurant provides a clean, calm, and refreshing environment perfect for family and friends.
-      </p>
-    </div>
-  </li>
-
-  <li class="feature-item">
-    <div class="feature-card">
-      <div class="card-icon">
-        <img th:src="@{/images/features-icon-3.png}" width="100" height="80" alt="icon">
-      </div>
-      <h3 class="title-2 card-title">Skilled Chefs</h3>
-      <p class="label-1 card-text">
-        Our chefs are highly trained professionals who bring authentic taste and creativity to every dish.
-      </p>
-    </div>
-  </li>
-
-  <li class="feature-item">
-    <div class="feature-card">
-      <div class="card-icon">
-        <img th:src="@{/images/features-icon-4.png}" width="100" height="80" alt="icon">
-      </div>
-      <h3 class="title-2 card-title">Event & Party</h3>
-      <p class="label-1 card-text">
-        We offer customized party and event bookings with special menus and decorations to suit every occasion.
-      </p>
-    </div>
-  </li>
+<li><a href="#home" class="navbar-link">Home</a></li>
+<li><a href="#menu" class="navbar-link">Menu</a></li>
+<li><a href="#about" class="navbar-link">About</a></li>
+<li><a href="#reservation" class="navbar-link">Reservation</a></li>
+<li><a th:href="@{/admin-login}" class="navbar-link">Admin</a></li>
 
 </ul>
+</nav>
 
+</div>
+</header>
 
-    <img th:src="@{/images/shape-7.png}" width="208" height="178" alt="shape" class="shape shape-1">
-    <img th:src="@{/images/shape-8.png}" width="120" height="115" alt="shape" class="shape shape-2">
+<!-- HERO -->
 
-  </div>
-  
-  <script src="https://cdn.tiny.cloud/1/7aprz4klfepal5h7zqbm0gr6fjjoil18y7li6de0g83lqw00/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<section id="home" class="hero text-center">
 
-<!-- Init Script -->
-<script>
-  tinymce.init({
-    selector: '#mytextarea',
-    height: 300
-  });
-</script>
-  
+<h1>Welcome to Our Restaurant</h1>
+<p>Enjoy Delicious Food With Family</p>
+
+<a href="#menu" class="btn btn-primary">View Menu</a>
+
 </section>
 
+<!-- MENU -->
 
+<section id="menu" class="section menu">
 
+<div class="container">
 
+<h2 class="headline-1 text-center">Delicious Menu</h2>
 
+<p class="text-center">
+Our restaurant offers a variety of delicious dishes prepared with fresh ingredients.
+</p>
 
-<!-- Developer Credit Section -->
-<div class="footer-bottom">
-  <p class="body-4" style="color: white; font-size: 1rem; margin-top: 10px;">
-    © 2025 Grilli Restaurant Website — Developed by 
-    <strong>Anshul Rathore</strong>, <strong>Ajay Gupta</strong> & <strong>Ananya Patel</strong>
-  </p>
 </div>
 
+</section>
 
+<!-- ABOUT -->
 
+<section id="about" class="section about">
 
-<!-- SCRIPTS -->
+<div class="container">
+
+<h2 class="headline-1">About Our Restaurant</h2>
+
+<p>
+We provide high quality food and great customer service.
+Our chefs prepare every meal with care to give you the best dining experience.
+</p>
+
+</div>
+
+</section>
+
+<!-- RESERVATION -->
+
+<section class="reservation" id="reservation">
+
+<div class="container">
+
+<div class="form reservation-form bg-black-10">
+
+<form th:action="@{'/submitReservation' + '#reservation'}"
+method="post"
+th:object="${reservation}"
+class="form-left">
+
+<h2 class="headline-1 text-center">Online Reservation</h2>
+
+<p class="form-text text-center">
+Booking request
+<a href="tel:9009258986">9009258986</a>
+or fill the form
+</p>
+
+<!-- SUCCESS MESSAGE -->
+
+<div th:if="${success}" class="success-message">
+<p th:text="${success}"></p>
+</div>
+
+<div class="input-wrapper">
+
+<input type="text" th:field="*{name}" placeholder="Your Name" class="input-field">
+
+<input type="email" th:field="*{email}" placeholder="Email" class="input-field">
+
+<input type="tel" th:field="*{phone}" placeholder="Phone Number" class="input-field">
+
+</div>
+
+<div class="input-wrapper">
+
+<select th:field="*{person}" class="input-field">
+
+<option value="1">1 Person</option>
+<option value="2">2 Person</option>
+<option value="3">3 Person</option>
+<option value="4">4 Person</option>
+<option value="5">5 Person</option>
+<option value="6">6 Person</option>
+
+</select>
+
+<input type="date" th:field="*{reservation_date}" class="input-field">
+
+<select th:field="*{time}" class="input-field">
+
+<option value="08:00am">08:00 AM</option>
+<option value="09:00am">09:00 AM</option>
+<option value="10:00am">10:00 AM</option>
+<option value="11:00am">11:00 AM</option>
+<option value="12:00pm">12:00 PM</option>
+<option value="01:00pm">01:00 PM</option>
+<option value="02:00pm">02:00 PM</option>
+<option value="03:00pm">03:00 PM</option>
+<option value="04:00pm">04:00 PM</option>
+<option value="05:00pm">05:00 PM</option>
+<option value="06:00pm">06:00 PM</option>
+<option value="07:00pm">07:00 PM</option>
+<option value="08:00pm">08:00 PM</option>
+<option value="09:00pm">09:00 PM</option>
+
+</select>
+
+</div>
+
+<!-- MESSAGE / DESCRIPTION -->
+
+<div class="input-wrapper">
+
+<textarea th:field="*{message}"
+placeholder="Write your special request or description..."
+rows="4"
+class="input-field"
+style="width:100%; padding:10px;"></textarea>
+
+</div>
+
+<button type="submit" class="btn btn-secondary">
+
+<span>Book A Table</span>
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<div class="container">
+
+<p style="text-align:center">
+
+© 2025 Restaurant Management System
+Developed by <strong>Anshul Rathore</strong>, <strong>Ajay Gupta</strong> & <strong>Ananya Patel</strong>
+
+</p>
+
+</div>
+
+</footer>
+
 <script th:src="@{/js/script.js}"></script>
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
- 

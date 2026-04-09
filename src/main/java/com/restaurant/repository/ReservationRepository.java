@@ -8,6 +8,6 @@ import com.restaurant.Entity.Reservation;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
 
-    List<Reservation> findAllByOrderByReservationDateDesc();
+    List<Reservation> findAllByOrderByReservation_dateDesc();
 
 }

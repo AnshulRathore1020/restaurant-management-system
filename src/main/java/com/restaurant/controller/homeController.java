@@ -10,55 +10,44 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.restaurant.Entity.Reservation;
 import com.restaurant.repository.ReservationRepository;
-import com.restaurant.service.EmailService;
-import com.sun.net.httpserver.Authenticator.Success;
 
 import jakarta.validation.Valid;
 
 @Controller
 public class homeController {
-	
-	@Autowired
-	private ReservationRepository reservationRepository;
-	
-	@Autowired
-	private EmailService emailService;
-	
-	
-	@GetMapping("/")
-	public String index(Model model) {
-		model.addAttribute("reservation",new Reservation());
-		return "index";
-	}
-	
-	@PostMapping("/submitReservation")
-	public String handleReservation(@Valid @ModelAttribute Reservation reservation, BindingResult result, Model model) {
 
-	    if (result.hasErrors()) {
-	        model.addAttribute("reservation", reservation);
-	        return "index";
-	    }
 
-	    // 1. Save reservation to DB
-	    reservationRepository.save(reservation);
+@Autowired
+private ReservationRepository reservationRepository;
 
-	    // 2. Send confirmation email (IMPORTANT: phone should be email or use separate email field)
-	    emailService.sendReservationConfirmation(
-	        reservation.getEmail(), // ⚠️ Use getEmail() if phone is not email
-	        reservation.getName(),
-	        reservation.getReservation_date(),
-	        reservation.getTime()
-	    );
+// Home Page
+@GetMapping("/")
+public String index(Model model) {
+    model.addAttribute("reservation", new Reservation());
+    return "index";
+}
 
-	    // 3. Show success message
-	    model.addAttribute("success", "Your order has been successfully placed!!");
+// Handle Reservation Form Submit
+@PostMapping("/submitReservation")
+public String handleReservation(@Valid @ModelAttribute("reservation") Reservation reservation,
+                                BindingResult result,
+                                Model model) {
 
-	    // 4. Clear the form
-	    model.addAttribute("reservation", new Reservation());
+    if (result.hasErrors()) {
+        return "index";
+    }
 
-	    return "index";
-	}
+    // Save reservation to database
+    reservationRepository.save(reservation);
 
+    // Success message
+    model.addAttribute("success", "Your reservation has been successfully placed!");
+
+    // Reset form
+    model.addAttribute("reservation", new Reservation());
+
+    return "index";
+}
 
 
 }

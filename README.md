@@ -68,7 +68,16 @@ https://github.com/AnshulRathore1020/restaurant-management-system
 
 ### Admin Dashboard
 
-(Add screenshot here)
+## 📸 Screenshots
+
+### Home Page
+![Home Page](screenshots/homepage.png)
+
+### Reservation Form
+![Reservation Form](screenshots/reservation.png)
+
+### Admin Dashboard
+![Admin Dashboard](screenshots/admin-dashboard.png)
 
 ---
 

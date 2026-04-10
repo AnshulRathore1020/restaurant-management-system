@@ -41,18 +41,17 @@ public String handleReservation(@Valid @ModelAttribute("reservation") Reservatio
         return "index";
     }
 
-    // Save reservation
     reservationRepository.save(reservation);
 
-    // Send Email
-    emailService.sendReservationConfirmation(
+    new Thread(() -> {
+        emailService.sendReservationConfirmation(
             reservation.getEmail(),
             reservation.getName(),
             reservation.getReservation_date(),
             reservation.getTime()
-    );
+        );
+    }).start();
 
-    // Success message
     model.addAttribute("success", "Your reservation has been successfully placed!");
 
     // Reset form

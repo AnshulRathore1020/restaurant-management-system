@@ -1,61 +1,126 @@
-# 🍽️ Restaurant Management System
+# 🍽️ Grilli Restaurant Management System
 
-[![Java](https://img.shields.io/badge/Java-ED8B00?style=flat&logo=openjdk&logoColor=white)](https://java.com)
-[![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat&logo=spring-boot&logoColor=white)](https://spring.io)
-[![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)](https://mysql.com)
-[![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)](https://docker.com)
+A full-stack restaurant reservation and management system built using **Spring Boot, Thymeleaf, and MySQL**.
+The application allows customers to book tables online while providing an admin dashboard to manage reservations efficiently.
 
-A full-stack restaurant management application with role-based access control, dynamic menu management, and automated reservation handling.
+---
 
-## ✨ Features
-- 🔐 Role-based access control (Admin / Staff / Customer)
-- 🍕 Menu management — add, edit, delete items
-- 📅 Reservation booking & management
-- 🛡️ Spring Security integration for data protection
-- 🐳 Dockerized for consistent deployment
-- 📊 Optimized relational schema via Hibernate/JPA
+## 🚀 Live Demo
+
+🌐 Live Application:
+https://restaurant-management-system-production-ad49.up.railway.app
+
+💻 GitHub Repository:
+https://github.com/AnshulRathore1020/restaurant-management-system
+
+---
+
+## 📌 Features
+
+* Online table reservation system
+* Form validation for user inputs
+* Admin dashboard to view and manage reservations
+* Delete reservation functionality
+* Email confirmation system for bookings
+* Responsive restaurant UI
+* Secure backend using Spring Boot
+* Database integration with MySQL
+* Deployed on Railway
+
+---
 
 ## 🛠️ Tech Stack
-| Layer | Technology |
-|-------|-----------|
-| Backend | Java 17, Spring Boot 3.x |
-| ORM | Hibernate / Spring Data JPA |
-| Frontend | Thymeleaf |
-| Database | MySQL |
-| Security | Spring Security |
-| DevOps | Docker |
-| Build Tool | Maven |
 
-## 🚀 Getting Started
+### Backend
 
-### Prerequisites
-- Java 17+
-- MySQL 8.0+
-- Maven 3.8+
-- Docker (optional)
+* Java
+* Spring Boot
+* Spring Data JPA
+* Spring Security
+* Java Mail Sender
 
-### Run Locally
-```bash
-# Clone the repo
-git clone https://github.com/AnshulRathore1020/restaurant-management-system
+### Frontend
 
-# Configure DB in application.properties
-spring.datasource.url=jdbc:mysql://localhost:3306/restaurant_db
-spring.datasource.username=YOUR_USERNAME
-spring.datasource.password=YOUR_PASSWORD
+* HTML
+* CSS
+* Thymeleaf
+* JavaScript
 
-# Run the app
+### Database
+
+* MySQL
+
+### Deployment
+
+* Railway
+
+---
+
+## 📸 Screenshots
+
+### Home Page
+
+(Add screenshot here)
+
+### Reservation Form
+
+(Add screenshot here)
+
+### Admin Dashboard
+
+(Add screenshot here)
+
+---
+
+## 📂 Project Structure
+
+```
+restaurant-management-system
+│
+├── controller
+├── service
+├── repository
+├── entity
+├── templates
+├── static
+└── application.properties
+```
+
+---
+
+## ⚙️ Installation
+
+1. Clone the repository
+
+```
+git clone https://github.com/AnshulRathore1020/restaurant-management-system.git
+```
+
+2. Open project in IDE (STS / IntelliJ)
+
+3. Configure database in `application.properties`
+
+4. Run the Spring Boot application
+
+```
 mvn spring-boot:run
 ```
 
-### Run with Docker
-```bash
-docker-compose up --build
-```
-App will be available at `http://localhost:8080`
+---
 
-## 📸 Screenshots
-<!-- Add screenshots here after taking them -->
+## 👨‍💻 Developers
 
-## 🤝 Connect
-Made with ❤️ by [Anshul Rathore](https://www.linkedin.com/in/anshul-rathore-it/)
+* **Anshul Rathore**
+* Ajay Gupta
+* Ananya Patel
+
+---
+
+## 📧 Contact
+
+If you have any questions or suggestions, feel free to reach out.
+
+LinkedIn: https://www.linkedin.com/
+GitHub: https://github.com/AnshulRathore1020
+
+---
